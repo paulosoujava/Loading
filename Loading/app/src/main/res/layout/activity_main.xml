@@ -67,6 +67,7 @@
 
     </FrameLayout>
     <Button
+        android:id="@+id/btn"
         android:layout_alignBottom="@id/frame"
         android:layout_centerHorizontal="true"
         android:layout_width="40dp"

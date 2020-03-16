@@ -2,9 +2,11 @@ package com.paulo.loading
 
 import android.animation.ObjectAnimator
 import android.animation.PropertyValuesHolder
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.view.View
 import androidx.appcompat.widget.AppCompatImageView
 import com.paulo.utils.Utils
 import kotlinx.android.synthetic.main.activity_main.*
@@ -18,6 +20,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         handler.post(runnable)
+
+        btn.setOnClickListener {
+            startActivity(Intent(this,WelcomeActivity::class.java))
+        }
     }
 
     private val runnable: Runnable
