@@ -6,10 +6,12 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import androidx.cardview.widget.CardView
 import com.paulo.loading.MainActivity
 import com.paulo.loading.R
 import com.paulo.utils.Utils
 import kotlinx.android.synthetic.main.activity_main.*
+
 
 class SplashActivity : AppCompatActivity() {
 
@@ -39,17 +41,7 @@ class SplashActivity : AppCompatActivity() {
         get() = Runnable {
             Utils().anim(anim_1, 2f, 2f, .1f, 950, .3f, .3f, 1f)
             Utils().anim(anim_2, 1.5f, 1.5f, .2f, 850, .7f, .7f, 1f)
-
-            val scale: ObjectAnimator = ObjectAnimator.ofPropertyValuesHolder(
-                me_card,
-                PropertyValuesHolder.ofFloat("scaleX", .7f),
-                PropertyValuesHolder.ofFloat("scaleY", .7f)
-            )
-            scale.duration = 500
-            scale.repeatCount = ObjectAnimator.INFINITE
-            scale.repeatMode = ObjectAnimator.REVERSE
-            handler.postDelayed( runnable, 1000)
-            scale.start()
+            Utils().myScale( me_card,.7f, .7f, 500, handler, runnable).start()
         }
 
 }
